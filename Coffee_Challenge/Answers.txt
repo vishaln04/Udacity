@@ -1,0 +1,33 @@
+1. If I want to show a picture on my phone, what XML element should I use ?
+Ans - ImageView
+
+2. android:layout_width, android:text, android:src are all examples of what ?
+Ans - Attributes
+
+3. Write the sentence "I like practice sets the best" in CamelCase.
+Ans - ILikePracticeSetsTheBest
+
+4. RelativeLayout and LinearLayout are known as what ?
+Ans - Viewgroups
+
+5. I always need to .... and .... close my tags.
+Ans - open and close
+
+6. What are the names of the two instructors ?
+Ans - Kunal Chawla and Katherine Kuan
+
+7. Which line has an XML error on it ?
+Ans - 21
+
+8. What is the width of the Textview ?
+Ans - 350dp
+
+9. Complete the code to position the button.
+Ans - a) android:layout_alignParentBottom="true"
+	  b) android:layout_centerHorizontal="true"
+
+10. What is the height of the "ChaiTea" Textview ?
+Ans - 100dp
+
+11. Who am I making this cup of coffee for ?
+Ans - Kagure Kabue
