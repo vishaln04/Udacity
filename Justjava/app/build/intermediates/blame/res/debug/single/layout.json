@@ -144,12 +144,12 @@
         "source": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
-        "merged": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
-        "source": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_lines.xml"
-    },
-    {
         "merged": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
         "source": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
+        "source": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_lines.xml"
     },
     {
         "merged": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
