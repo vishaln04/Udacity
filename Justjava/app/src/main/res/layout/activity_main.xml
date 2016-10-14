@@ -11,36 +11,56 @@
         android:id="@+id/quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="QUANTITY"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:text="QUANTITY" />
 
-    <TextView
-        android:id="@+id/value"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="26sp"
-        android:layout_margin="10dp"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:onClick="decrement"/>
+
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="0"
+            android:textSize="26sp" />
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:onClick="increment"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PRICE"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:text="PRICE" />
 
     <TextView
         android:id="@+id/pvalue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="$0"
-        android:textSize="26sp"
-        android:layout_margin="10dp"/>
+        android:textSize="26sp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ORDER"
         android:layout_marginLeft="10dp"
-        android:onClick="submitOrder"/>
+        android:onClick="submitOrder"
+        android:text="ORDER" />
 </LinearLayout>
