@@ -22,21 +22,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View view) {
-        display(Quantity);
-        displayPrice(Quantity * 5);
+       String message = createOrderSummary(Quantity);
+       displayMessage(message);
     }
 
-    // Display Number of Cups of coffee
-    private void display(int number) {
-        TextView quantityTextView = (TextView) findViewById(R.id.value);
-        quantityTextView.setText("" + number);
-    }
-
-    // Display total price of coffee
-    private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.pvalue);
-        priceTextView.setText("" + number);
-    }
 
     // increment function
     public void increment(View view) {
@@ -54,5 +43,17 @@ public class MainActivity extends AppCompatActivity {
         else
             Quantity -= 1;
         quantityTextView.setText("" + Quantity);
+    }
+
+    // Creates an order summary
+    private String createOrderSummary(int number){
+        String message = "Name : Kaptain Kunal\nQuantity : "+ number + "\nTotal : " + number*5 + "\nThank You!";
+        return message;
+    }
+
+    // Dispaly message
+    private void displayMessage(String message){
+        TextView priceTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        priceTextView.setText(message);
     }
 }

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
-        "source": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "/home/vishal/Udacity/Udacity/Justjava/D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
+        "source": "/home/vishal/Udacity/Udacity/Justjava/D:\\Projects\\Android\\Udacity\\Justjava\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "/home/vishal/Udacity/Udacity/Justjava/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
+        "source": "/home/vishal/Udacity/Udacity/Justjava/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     }
 ]
