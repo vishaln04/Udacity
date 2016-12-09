@@ -5,6 +5,7 @@ import android.icu.text.NumberFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,9 +23,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View view) {
-       String message = createOrderSummary(Quantity);
+       CheckBox checkBox_whipped_cream = (CheckBox) findViewById(R.id.checkbox_whipped_cream);
+       boolean chbox_w_cream = checkBox_whipped_cream.isChecked();
+        String message = createOrderSummary(Quantity,chbox_w_cream);
        displayMessage(message);
     }
+
+
 
 
     // increment function
@@ -46,8 +51,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Creates an order summary
-    private String createOrderSummary(int number){
-        String message = "Name : Kaptain Kunal\nQuantity : "+ number + "\nTotal : " + number*5 + "\nThank You!";
+    private String createOrderSummary(int number, boolean checkbox){
+        String message;
+        if (checkbox = false)
+            message = "Name : Kaptain Kunal\nQuantity : "+ number + "\nTotal : " + number*5 + "\nThank You!";
+        else
+            message = "Name : Kaptain Kunal \nwith Whipped Cream \nQuantity : "+ number + "\nTotal : " + number*5 + "\nThank You!";
         return message;
     }
 

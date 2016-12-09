@@ -8,6 +8,22 @@
     tools:context="com.example.vishalnagarale.justjava.MainActivity">
 
     <TextView
+        android:id="@+id/toppings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="TOPPINGS"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_whipped_cream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="16dp"
+            android:text="Whipped Cream"/>
+
+
+    <TextView
         android:id="@+id/quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
