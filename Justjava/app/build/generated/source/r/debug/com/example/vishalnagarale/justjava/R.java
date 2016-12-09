@@ -1803,7 +1803,8 @@ containing a value of this type.
         public static final int buttonPanel=0x7f0b002e;
         public static final int cancel_action=0x7f0b005c;
         public static final int checkbox=0x7f0b003c;
-        public static final int checkbox_whipped_cream=0x7f0b0056;
+        public static final int checkbox_chocolate=0x7f0b0058;
+        public static final int checkbox_whipped_cream=0x7f0b0057;
         public static final int chronometer=0x7f0b0062;
         public static final int collapseActionView=0x7f0b001e;
         public static final int contentPanel=0x7f0b0034;
@@ -1833,12 +1834,10 @@ containing a value of this type.
         public static final int never=0x7f0b0020;
         public static final int none=0x7f0b000e;
         public static final int normal=0x7f0b000a;
-        public static final int order_summary_text_view=0x7f0b005a;
         public static final int parentPanel=0x7f0b0030;
-        public static final int price=0x7f0b0059;
         public static final int progress_circular=0x7f0b0005;
         public static final int progress_horizontal=0x7f0b0006;
-        public static final int quantity=0x7f0b0057;
+        public static final int quantity=0x7f0b0059;
         public static final int radio=0x7f0b003e;
         public static final int screen=0x7f0b0015;
         public static final int scrollIndicatorDown=0x7f0b0038;
@@ -1876,10 +1875,11 @@ containing a value of this type.
         public static final int title_template=0x7f0b0032;
         public static final int top=0x7f0b0023;
         public static final int topPanel=0x7f0b0031;
-        public static final int toppings=0x7f0b0055;
+        public static final int toppings=0x7f0b0056;
         public static final int up=0x7f0b0008;
         public static final int useLogo=0x7f0b0012;
-        public static final int value=0x7f0b0058;
+        public static final int user_name=0x7f0b0055;
+        public static final int value=0x7f0b005a;
         public static final int withText=0x7f0b0021;
         public static final int wrap_content=0x7f0b0019;
     }

@@ -510,7 +510,8 @@ int id bottom 0x7f0b0022
 int id buttonPanel 0x7f0b002e
 int id cancel_action 0x7f0b005c
 int id checkbox 0x7f0b003c
-int id checkbox_whipped_cream 0x7f0b0056
+int id checkbox_chocolate 0x7f0b0058
+int id checkbox_whipped_cream 0x7f0b0057
 int id chronometer 0x7f0b0062
 int id collapseActionView 0x7f0b001e
 int id contentPanel 0x7f0b0034
@@ -540,12 +541,10 @@ int id multiply 0x7f0b0014
 int id never 0x7f0b0020
 int id none 0x7f0b000e
 int id normal 0x7f0b000a
-int id order_summary_text_view 0x7f0b005a
 int id parentPanel 0x7f0b0030
-int id price 0x7f0b0059
 int id progress_circular 0x7f0b0005
 int id progress_horizontal 0x7f0b0006
-int id quantity 0x7f0b0057
+int id quantity 0x7f0b0059
 int id radio 0x7f0b003e
 int id screen 0x7f0b0015
 int id scrollIndicatorDown 0x7f0b0038
@@ -583,10 +582,11 @@ int id title 0x7f0b002d
 int id title_template 0x7f0b0032
 int id top 0x7f0b0023
 int id topPanel 0x7f0b0031
-int id toppings 0x7f0b0055
+int id toppings 0x7f0b0056
 int id up 0x7f0b0008
 int id useLogo 0x7f0b0012
-int id value 0x7f0b0058
+int id user_name 0x7f0b0055
+int id value 0x7f0b005a
 int id withText 0x7f0b0021
 int id wrap_content 0x7f0b0019
 int integer abc_config_activityDefaultDur 0x7f0c0000

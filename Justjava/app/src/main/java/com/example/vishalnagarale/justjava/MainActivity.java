@@ -1,11 +1,13 @@
 package com.example.vishalnagarale.justjava;
 
 import android.content.Context;
+import android.content.Intent;
 import android.icu.text.NumberFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,9 +26,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void submitOrder(View view) {
        CheckBox checkBox_whipped_cream = (CheckBox) findViewById(R.id.checkbox_whipped_cream);
-       boolean chbox_w_cream = checkBox_whipped_cream.isChecked();
-        String message = createOrderSummary(Quantity,chbox_w_cream);
-       displayMessage(message);
+       CheckBox checkBox_chocolate = (CheckBox) findViewById(R.id.checkbox_chocolate);
+        EditText name = (EditText) findViewById(R.id.user_name);
+        String u_name = name.getText().toString();
+        u_name = "JustJava order for " + u_name;
+        String message = createOrderSummary(Quantity,u_name,checkBox_whipped_cream.isChecked(), checkBox_chocolate.isChecked());
+
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("message/rfc822");
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{""});
+        i.putExtra(Intent.EXTRA_SUBJECT, u_name);
+        i.putExtra(Intent.EXTRA_TEXT   , message);
+        try {
+            startActivity(Intent.createChooser(i, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MainActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
+
+//
+//       displayMessage(message);
     }
 
 
@@ -51,18 +69,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Creates an order summary
-    private String createOrderSummary(int number, boolean checkbox){
+    private String createOrderSummary(int number, String name, boolean checkbox, boolean checkbox_choco){
         String message;
-        if (checkbox = false)
-            message = "Name : Kaptain Kunal\nQuantity : "+ number + "\nTotal : " + number*5 + "\nThank You!";
+        if (checkbox == false && checkbox_choco == false)
+            message = "Name : " + name + "\nQuantity : "+ number + "\nTotal : " + number*5 + "\nThank You!";
+        else if (checkbox == true && checkbox_choco == false)
+            message = "Name : " + name + "\nwith Whipped Cream \nQuantity : "+ number + "\nTotal : " + number*6 + "\nThank You!";
+        else if (checkbox == false && checkbox_choco == true)
+            message = "Name : " + name + "\nwith Chocolate \nQuantity : "+ number + "\nTotal : " + number*7 + "\nThank You!";
         else
-            message = "Name : Kaptain Kunal \nwith Whipped Cream \nQuantity : "+ number + "\nTotal : " + number*5 + "\nThank You!";
+            message = "Name : " + name + "\nwith Whipped Cream and Chocolate \nQuantity : "+ number + "\nTotal : " + number*8 + "\nThank You!";
         return message;
     }
 
-    // Dispaly message
-    private void displayMessage(String message){
-        TextView priceTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        priceTextView.setText(message);
-    }
 }
