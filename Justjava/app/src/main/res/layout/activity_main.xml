@@ -6,7 +6,7 @@
 <LinearLayout
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context="com.example.vishalnagarale.justjava.MainActivity">
 
@@ -14,37 +14,35 @@
         android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:hint="@string/username"
         android:inputType="textMultiLine"/>
 
     <TextView
         android:id="@+id/toppings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="TOPPINGS"/>
+        android:text="@string/toppings"
+        style="@style/CustomText"/>
 
         <CheckBox
             android:id="@+id/checkbox_whipped_cream"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:text="Whipped Cream"/>
+            android:text="@string/whi_cream"/>
 
     <CheckBox
         android:id="@+id/checkbox_chocolate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:text="Chocolate"/>
+        android:text="@string/chocolate"/>
 
 
     <TextView
         android:id="@+id/quantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="QUANTITY" />
+        android:text="@string/quantity"
+        style="@style/CustomText"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -55,7 +53,7 @@
         <Button
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="-"
+            android:text="@string/minus"
             android:onClick="decrement"/>
 
         <TextView
@@ -64,13 +62,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="0"
+            android:text="@string/zero"
             android:textSize="26sp" />
 
         <Button
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="+"
+            android:text="@string/plus"
             android:onClick="increment"/>
 
     </LinearLayout>
@@ -81,6 +79,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
         android:onClick="submitOrder"
-        android:text="ORDER" />
+        android:text="@string/order" />
 </LinearLayout>
 </ScrollView>
