@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">फक्त जावा</string>
+    <string name="username">नाव</string>
+    <string name="whi_cream">whipped मलई </string>
+    <string name="chocolate">चॉकलेट </string>
+    <string name="quantity">प्रमाण</string>
+    <string name="zero">0</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="order">ऑर्डर</string>
+    <string name="toppings">toppings</string>
+    <string name="just_order">साठी JustJava ऑर्डर </string>
+    <string name="sendmail">मेल पाठवू...</string>
+    <string name="noclients">विना मेल क्लायंट आहेत.</string>
+    <string name="toast">Decremented करू शकत नाही</string>
+    <string name="total">एकूण</string>
+    <string name="tq">धन्यवाद!!!</string>
+    <string name="with">सह </string>
+</resources>
