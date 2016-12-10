@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "outputFile": "/home/vishal/Udacity/Udacity/Justjava/D:\\Projects\\Android\\Udacity\\Justjava\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,37 @@
                     "endOffset": 108
                 },
                 "from": {
-                    "file": "D:\\Projects\\Android\\Udacity\\Justjava\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "file": "/home/vishal/Udacity/Udacity/Justjava/D:\\Projects\\Android\\Udacity\\Justjava\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
                         "startOffset": 295,
                         "endColumn": 57,
                         "endOffset": 348
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/vishal/Udacity/Udacity/Justjava/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "/home/vishal/Udacity/Udacity/Justjava/app/src/main/res/values-w820dp/dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 291,
+                        "endColumn": 57,
+                        "endOffset": 344
                     }
                 }
             }
