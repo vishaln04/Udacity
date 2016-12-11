@@ -3,7 +3,9 @@ package com.example.vishal.langconverter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -27,13 +29,16 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(8,"Nine");
         words.add(9,"Ten");
 
-        LinearLayout numbers = (LinearLayout) findViewById(R.id.activity_numbers);
+       // LinearLayout numbers = (LinearLayout) findViewById(R.id.activity_numbers);
+
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(itemsAdapter);
 
 
-        for (int index = 0; index < words.size(); index++) {
-            TextView wordView = new TextView(this);
-            wordView.setText(words.get(index));
-            numbers.addView(wordView);
-        }
+
+
     }
 }
