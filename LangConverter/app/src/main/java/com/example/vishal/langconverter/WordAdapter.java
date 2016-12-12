@@ -1,7 +1,9 @@
 package com.example.vishal.langconverter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +19,16 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    public WordAdapter(Activity context, ArrayList<Word> words) {
+    // Resource ID for the background color for the list of words
+    private int mColorResourceId;
+
+    public WordAdapter(Activity context, ArrayList<Word> words, int resourceID) {
 
     // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
     // Also the second argument is for single TextView but we have custom view so it is set to 0
 
     super(context,0,words);
+        mColorResourceId = resourceID;
     }
 
     @NonNull
@@ -69,6 +75,15 @@ public class WordAdapter extends ArrayAdapter<Word> {
             // We can set the visibility of ImageView to GONE
             imageView.setVisibility(View.GONE);
         }
+
+        // Set the theme color for the list item
+        View textContainer = listItemView.findViewById(R.id.text_container);
+
+        // Get the color that ResourceId maps to
+        int color = ContextCompat.getColor(getContext(),mColorResourceId);
+
+        //Set the background color to the container view
+        textContainer.setBackgroundColor(color);
 
         return listItemView;
     }
