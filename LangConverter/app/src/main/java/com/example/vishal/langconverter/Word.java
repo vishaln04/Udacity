@@ -6,9 +6,12 @@ package com.example.vishal.langconverter;
 
 public class Word {
 
+    private static final int NO_WORD_PROVIDED = -1;
+
     private String mMiwok;
     private String mDefault;
-    private int mImage_id;
+    private int mImage_id = NO_WORD_PROVIDED;
+
 
     // Word Constructor to initialize the values specially for phrases
 
@@ -22,7 +25,7 @@ public class Word {
     public Word(String mi, String de,int imgId){
         mMiwok = mi;
         mDefault = de;
-        imgId = mImage_id;
+        mImage_id = imgId;
     }
 
     // Get the Miwok Translation of the Word
@@ -41,5 +44,11 @@ public class Word {
 
     public int getImage_id() {
         return mImage_id;
+    }
+
+    // Check if there is an Image or not
+
+    public boolean hasImage() {
+        return mImage_id != NO_WORD_PROVIDED;
     }
 }

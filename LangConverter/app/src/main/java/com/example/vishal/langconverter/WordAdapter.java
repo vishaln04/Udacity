@@ -53,8 +53,22 @@ public class WordAdapter extends ArrayAdapter<Word> {
         //Find the ImageView in the list_item.xml with the id image
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
 
-        // Get the imageview from currentWord object and set it to our image
-        imageView.setImageResource(currentWord.getImage_id());
+        //We don't know that it has omage or not lets check that
+        if (currentWord.hasImage()) {
+
+            // Get the imageview from currentWord object and set it to our image
+            imageView.setImageResource(currentWord.getImage_id());
+
+            // Make sure the view is visible in case it is not previously
+            imageView.setVisibility(View.VISIBLE);
+
+        }
+
+        else {
+
+            // We can set the visibility of ImageView to GONE
+            imageView.setVisibility(View.GONE);
+        }
 
         return listItemView;
     }
