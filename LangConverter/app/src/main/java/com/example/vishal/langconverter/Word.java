@@ -8,13 +8,21 @@ public class Word {
 
     private String mMiwok;
     private String mDefault;
-    private int image_id;
+    private int mImage_id;
 
-    // Word Constructior to initialize the values
+    // Word Constructor to initialize the values specially for phrases
 
     public Word(String mi, String de){
         mMiwok = mi;
         mDefault = de;
+    }
+
+    // Word Constructor to initialize the values
+
+    public Word(String mi, String de,int imgId){
+        mMiwok = mi;
+        mDefault = de;
+        imgId = mImage_id;
     }
 
     // Get the Miwok Translation of the Word
@@ -32,6 +40,6 @@ public class Word {
     // Get the Image associate with the Word
 
     public int getImage_id() {
-        return image_id;
+        return mImage_id;
     }
 }

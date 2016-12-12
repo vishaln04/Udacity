@@ -11,7 +11,7 @@ public class PhrasesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phrases);
+        setContentView(R.layout.word_list);
 
         ArrayList<Word> phrases = new ArrayList<>();
         phrases.add(new Word("minto wuksus","Where are you going?"));
