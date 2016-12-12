@@ -13,20 +13,20 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        ArrayList<Word> words = new ArrayList<>();
-        words.add(new Word("lutti","One"));
-        words.add(new Word("otiiko","Two"));
-        words.add(new Word("tolookosu","Three"));
-        words.add(new Word("oyissa","Four"));
-        words.add(new Word("massokka","Five"));
-        words.add(new Word("temmokka","Six"));
-        words.add(new Word("kenekaku","Seven"));
-        words.add(new Word("kawinta","Eight"));
-        words.add(new Word("wo'e","Nine"));
-        words.add(new Word("na'aacha","Ten"));
+        ArrayList<Word> numbers = new ArrayList<>();
+        numbers.add(new Word("lutti","One"));
+        numbers.add(new Word("otiiko","Two"));
+        numbers.add(new Word("tolookosu","Three"));
+        numbers.add(new Word("oyissa","Four"));
+        numbers.add(new Word("massokka","Five"));
+        numbers.add(new Word("temmokka","Six"));
+        numbers.add(new Word("kenekaku","Seven"));
+        numbers.add(new Word("kawinta","Eight"));
+        numbers.add(new Word("wo'e","Nine"));
+        numbers.add(new Word("na'aacha","Ten"));
 
 
-       WordAdapter itemsAdapter = new WordAdapter(this,words);
+       WordAdapter itemsAdapter = new WordAdapter(this,numbers);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
