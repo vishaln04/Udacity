@@ -8,6 +8,7 @@ public class Word {
 
     private String mMiwok;
     private String mDefault;
+    private int image_id;
 
     // Word Constructior to initialize the values
 
@@ -26,5 +27,11 @@ public class Word {
 
     public String  getDefaultTranslation() {
         return  mDefault;
+    }
+
+    // Get the Image associate with the Word
+
+    public int getImage_id() {
+        return image_id;
     }
 }
