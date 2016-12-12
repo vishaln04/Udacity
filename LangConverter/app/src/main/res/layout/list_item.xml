@@ -16,7 +16,7 @@
             tools:text="lutti"/>
 
         <TextView
-            android:id="@+id/english"
+            android:id="@+id/Default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="One"/>
