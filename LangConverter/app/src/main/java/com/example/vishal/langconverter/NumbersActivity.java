@@ -29,9 +29,7 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(8,"Nine");
         words.add(9,"Ten");
 
-       // LinearLayout numbers = (LinearLayout) findViewById(R.id.activity_numbers);
-
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+       ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
