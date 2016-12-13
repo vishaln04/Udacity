@@ -2,6 +2,7 @@ package com.example.vishal.langconverter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,7 +30,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
     // Also the second argument is for single TextView but we have custom view so it is set to 0
 
     super(context,0,words);
-        mColorResourceId = resourceID;
+    mColorResourceId = resourceID;
     }
 
     @NonNull
@@ -42,7 +44,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
                     R.layout.list_item, parent, false);
         }
         // Get the  current object located in the position
-        Word currentWord = getItem(position);
+        final Word currentWord = getItem(position);
 
         // Find the TextView in the list_item.xml with the id miwok
         TextView mewokTextView = (TextView) listItemView.findViewById(R.id.mewok);

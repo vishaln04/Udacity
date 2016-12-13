@@ -11,21 +11,24 @@ public class Word {
     private String mMiwok;
     private String mDefault;
     private int mImage_id = NO_WORD_PROVIDED;
+    private int mAudioId;
 
 
     // Word Constructor to initialize the values specially for phrases
 
-    public Word(String mi, String de){
+    public Word(String mi, String de, int audio){
         mMiwok = mi;
         mDefault = de;
+        mAudioId = audio;
     }
 
     // Word Constructor to initialize the values
 
-    public Word(String mi, String de,int imgId){
+    public Word(String mi, String de,int imgId, int audio){
         mMiwok = mi;
         mDefault = de;
         mImage_id = imgId;
+        mAudioId = audio;
     }
 
     // Get the Miwok Translation of the Word
@@ -50,5 +53,11 @@ public class Word {
 
     public boolean hasImage() {
         return mImage_id != NO_WORD_PROVIDED;
+    }
+
+    // Get the Audio associate with the Word
+
+    public int getAudioId() {
+        return mAudioId;
     }
 }
