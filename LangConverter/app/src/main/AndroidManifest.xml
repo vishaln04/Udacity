@@ -17,7 +17,7 @@
         </activity>
         <activity
             android:name=".NumbersActivity"
-            android:label="@string/category_numbers"
+
             android:parentActivityName=".MainActivity">
             <!-- Parent activity meta-data to support 4.0 or lower -->
             <meta-data android:name="android.support.PARENT_ACTIVITY"
@@ -25,7 +25,7 @@
         </activity>
         <activity
             android:name=".FamilyActivity"
-            android:label="@string/category_family"
+
             android:parentActivityName=".MainActivity">
             <!-- Parent activity meta-data to support 4.0 or lower -->
             <meta-data android:name="android.support.PARENT_ACTIVITY"
@@ -33,7 +33,7 @@
         </activity>
         <activity
             android:name=".ColorsActivity"
-            android:label="@string/category_colors"
+
             android:parentActivityName=".MainActivity">
             <!-- Parent activity meta-data to support 4.0 or lower -->
             <meta-data android:name="android.support.PARENT_ACTIVITY"
@@ -41,7 +41,7 @@
         </activity>
         <activity
             android:name=".PhrasesActivity"
-            android:label="@string/category_phrases"
+
             android:parentActivityName=".MainActivity">
             <!-- Parent activity meta-data to support 4.0 or lower -->
             <meta-data android:name="android.support.PARENT_ACTIVITY"
