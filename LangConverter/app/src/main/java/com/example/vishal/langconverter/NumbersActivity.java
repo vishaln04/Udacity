@@ -15,6 +15,18 @@ public class NumbersActivity extends AppCompatActivity {
     // Handles playback of all media files
     MediaPlayer mMediaPlayer;
 
+    // This listner get triggered when the Mediaplayer has completed playing the audio file
+
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            if (mMediaPlayer != null) {
+                mMediaPlayer.release();
+                mMediaPlayer = null;
+            }
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +60,14 @@ public class NumbersActivity extends AppCompatActivity {
             // wordlist and we access the audio file associate with the position
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Word number = numbers.get(position);
+                // Release the media player if it currently exist because we are about to play new song
+                if (mMediaPlayer != null) {
+                    mMediaPlayer.release();
+                    mMediaPlayer = null;
+                }
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, number.getAudioId());
                 mMediaPlayer.start();
+                mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
 

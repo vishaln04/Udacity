@@ -14,6 +14,18 @@ public class ColorsActivity extends AppCompatActivity {
     // Global variable for mediaplayer
     MediaPlayer mMediaPlayer;
 
+    // This listner get triggered when the Mediaplayer has completed playing the audio file
+
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            if (mMediaPlayer != null) {
+                mMediaPlayer.release();
+                mMediaPlayer = null;
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +56,14 @@ public class ColorsActivity extends AppCompatActivity {
             // wordlist and we access the audio file associate with the position
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Word color = colors.get(position);
+                // Release the media player if it currently exist because we are about to play new song
+                if (mMediaPlayer != null) {
+                    mMediaPlayer.release();
+                    mMediaPlayer = null;
+                }
                 mMediaPlayer = MediaPlayer.create(ColorsActivity.this, color.getAudioId());
                 mMediaPlayer.start();
+                mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
 
