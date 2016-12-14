@@ -1,11 +1,14 @@
 package com.example.vishal.langconverter;
 
+
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -14,9 +17,13 @@ import java.util.ArrayList;
 import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT;
 import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK;
 
-public class NumbersActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ColorFragment extends Fragment {
 
-    // Handles playback of all media files
+
+    // Global variable for mediaplayer
     MediaPlayer mMediaPlayer;
 
     // Declare global audiomanager variable for handling audio focus
@@ -52,33 +59,36 @@ public class NumbersActivity extends AppCompatActivity {
     };
 
 
+    public ColorFragment() {
+        // Required empty public constructor
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
         // Create and setup the audiomanager to request audio focus
 
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
 
-
-        final ArrayList<Word> numbers = new ArrayList<>();
-        numbers.add(new Word("lutti","One",R.drawable.number_one,R.raw.number_one));
-        numbers.add(new Word("otiiko","Two",R.drawable.number_two,R.raw.number_two));
-        numbers.add(new Word("tolookosu","Three",R.drawable.number_three,R.raw.number_three));
-        numbers.add(new Word("oyissa","Four",R.drawable.number_four,R.raw.number_four));
-        numbers.add(new Word("massokka","Five",R.drawable.number_five,R.raw.number_five));
-        numbers.add(new Word("temmokka","Six",R.drawable.number_six,R.raw.number_six));
-        numbers.add(new Word("kenekaku","Seven",R.drawable.number_seven,R.raw.number_seven));
-        numbers.add(new Word("kawinta","Eight",R.drawable.number_eight,R.raw.number_eight));
-        numbers.add(new Word("wo'e","Nine",R.drawable.number_nine,R.raw.number_nine));
-        numbers.add(new Word("na'aacha","Ten",R.drawable.number_ten,R.raw.number_ten));
+        final ArrayList<Word> colors = new ArrayList<>();
+        colors.add(new Word("weṭeṭṭi","Red",R.drawable.color_red,R.raw.color_red));
+        colors.add(new Word("chokokki","Green",R.drawable.color_green,R.raw.color_green));
+        colors.add(new Word("ṭakaakki","Brown",R.drawable.color_brown,R.raw.color_brown));
+        colors.add(new Word("ṭopoppi","Gray",R.drawable.color_gray,R.raw.color_gray));
+        colors.add(new Word("kululli","Black",R.drawable.color_black,R.raw.color_black));
+        colors.add(new Word("kelelli","White",R.drawable.color_white,R.raw.color_white));
+        colors.add(new Word("ṭopiisә","Dusty Yellow",R.drawable.color_dusty_yellow,R.raw.color_dusty_yellow));
+        colors.add(new Word("chiwiiṭә","Mustard Yellow",R.drawable.color_mustard_yellow,R.raw.color_mustard_yellow));
 
 
-       WordAdapter itemsAdapter = new WordAdapter(this,numbers,R.color.category_numbers);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(),colors,R.color.category_colors);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
 
@@ -89,7 +99,7 @@ public class NumbersActivity extends AppCompatActivity {
             // Here the position gives which position the user click on so we get the array item in the
             // wordlist and we access the audio file associate with the position
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Word number = numbers.get(position);
+                Word color = colors.get(position);
                 // Release the media player if it currently exist because we are about to play new song
                 releaseMediaPlayer();
 
@@ -104,23 +114,17 @@ public class NumbersActivity extends AppCompatActivity {
 
                     // We have our Audio focus now
 
-
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, number.getAudioId());
+                    mMediaPlayer = MediaPlayer.create(getActivity(), color.getAudioId());
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
+
                 }
+
             }
         });
 
+        return rootView;
 
-    }
-
-    // In case the activity stop then we have to release the resources
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        releaseMediaPlayer();
     }
 
     // Release Media Player Resources
@@ -134,5 +138,14 @@ public class NumbersActivity extends AppCompatActivity {
             // both are calling our helper method so it is appropriate to add it here
             mAudioManager.abandonAudioFocus(afChangeListener);
         }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // When the activity is stopped, release the media player resources because we won't
+        // be playing any more sounds.
+        releaseMediaPlayer();
     }
 }

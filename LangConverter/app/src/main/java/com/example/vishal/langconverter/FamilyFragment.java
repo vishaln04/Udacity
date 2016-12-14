@@ -1,11 +1,14 @@
 package com.example.vishal.langconverter;
 
+
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -14,9 +17,12 @@ import java.util.ArrayList;
 import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT;
 import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK;
 
-public class PhrasesActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class FamilyFragment extends Fragment {
 
-    // Global Variable for Media Player
+    // Global variable for media player
     MediaPlayer mMediaPlayer;
 
     // Declare global audiomanager variable for handling audio focus
@@ -42,42 +48,49 @@ public class PhrasesActivity extends AppCompatActivity {
                 }
             };
 
-
-    // This listener get triggered when the Mediaplayer has completed playing the audio file
+    // This listner get triggered when the Mediaplayer has completed playing the audio file
 
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mediaPlayer) {
-           releaseMediaPlayer();
+            releaseMediaPlayer();
         }
     };
 
+
+
+    public FamilyFragment() {
+        // Required empty public constructor
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
         // Create and setup the audiomanager to request audio focus
 
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
 
-        final ArrayList<Word> phrases = new ArrayList<>();
-        phrases.add(new Word("minto wuksus","Where are you going?",R.raw.phrase_where_are_you_going));
-        phrases.add(new Word("tinnә oyaase'nә","What is your name?",R.raw.phrase_what_is_your_name));
-        phrases.add(new Word("oyaaset...","My name is...",R.raw.phrase_my_name_is));
-        phrases.add(new Word("michәksәs?","How are you feeling?",R.raw.phrase_how_are_you_feeling));
-        phrases.add(new Word("kuchi achit","I’m feeling good.",R.raw.phrase_im_feeling_good));
-        phrases.add(new Word("әәnәs'aa?","Are you coming?",R.raw.phrase_are_you_coming));
-        phrases.add(new Word("hәә’ әәnәm","Yes, I’m coming.",R.raw.phrase_yes_im_coming));
-        phrases.add(new Word("әәnәm","I’m coming.",R.raw.phrase_im_coming));
-        phrases.add(new Word("yoowutis","Let’s go.",R.raw.phrase_lets_go));
-        phrases.add(new Word("әnni'nem","Come here.",R.raw.phrase_come_here));
+        final ArrayList<Word> family = new ArrayList<>();
+        family.add(new Word("әpә","Father",R.drawable.family_father,R.raw.family_father));
+        family.add(new Word("әṭa","Mother",R.drawable.family_mother,R.raw.family_mother));
+        family.add(new Word("angsi","Son",R.drawable.family_son,R.raw.family_son));
+        family.add(new Word("tune","Daughter",R.drawable.family_daughter,R.raw.family_daughter));
+        family.add(new Word("taachi","Older Brother",R.drawable.family_older_brother,R.raw.family_older_brother));
+        family.add(new Word("chalitti","Younger Brother",R.drawable.family_younger_brother,R.raw.family_younger_brother));
+        family.add(new Word("teṭe","Older Sister",R.drawable.family_older_sister,R.raw.family_older_sister));
+        family.add(new Word("kolliti","Younger Sister",R.drawable.family_younger_sister,R.raw.family_younger_sister));
+        family.add(new Word("ama","Grandmother",R.drawable.family_grandmother,R.raw.family_grandmother));
+        family.add(new Word("paapa","Grandfather",R.drawable.family_grandfather,R.raw.family_grandfather));
 
 
-        WordAdapter itemsAdapter = new WordAdapter(this,phrases,R.color.category_phrases);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(),family,R.color.category_family);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
 
@@ -88,7 +101,7 @@ public class PhrasesActivity extends AppCompatActivity {
             // Here the position gives which position the user click on so we get the array item in the
             // wordlist and we access the audio file associate with the position
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Word phrase = phrases.get(position);
+                Word fam = family.get(position);
                 // Release the media player if it currently exist because we are about to play new song
                 releaseMediaPlayer();
 
@@ -103,24 +116,20 @@ public class PhrasesActivity extends AppCompatActivity {
 
                     // We have our Audio focus now
 
-
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrase.getAudioId());
+                    mMediaPlayer = MediaPlayer.create(getActivity(), fam.getAudioId());
                     mMediaPlayer.start();
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
+
                 }
 
             }
         });
 
+
+        return rootView;
+
     }
 
-    // In case the activity stop then we have to release the resources
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        releaseMediaPlayer();
-    }
 
     // Release Media Player Resources
     private void releaseMediaPlayer() {
@@ -128,10 +137,15 @@ public class PhrasesActivity extends AppCompatActivity {
         if (mMediaPlayer != null) {
             mMediaPlayer.release();
             mMediaPlayer = null;
-
-            // Abandon audio focus when playback complete, we can add it in onstop and oncomplete method but
-            // both are calling our helper method so it is appropriate to add it here
-            mAudioManager.abandonAudioFocus(afChangeListener);
         }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // When the activity is stopped, release the media player resources because we won't
+        // be playing any more sounds.
+        releaseMediaPlayer();
     }
 }
